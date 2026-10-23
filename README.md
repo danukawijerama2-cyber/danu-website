@@ -1,63 +1,36 @@
-# Danu — Personal Brand Website
+# Danu — Personal Brand Website (GitHub Pages + Supabase)
 
-A responsive, minimal personal website built with HTML, CSS, and JavaScript. No build tools or package installs are needed.
+## Included features
+- Responsive personal website and gallery lightbox
+- Visitor-controlled Dark / Light mode (preference saved in their browser)
+- Email/password sign-up and login through Supabase Auth
+- Direct message form that stores submissions in Supabase
+- Private owner inbox: only the configured owner email can read all submissions (enforced by database RLS)
 
-## Run on Windows
+## 1. Upload to GitHub Pages
+Upload all files and the `assets` folder to the root of your `danu-website` repository. Ensure `index.html` is at the repository root. In **Settings → Pages**, choose **Deploy from a branch**, `main`, and `/ (root)`, then Save.
 
-1. Download and extract `danu-personal-brand-custom.zip`.
-2. Open the extracted folder.
-3. Double-click `index.html` to open it in Chrome, Edge, or Firefox.
+## 2. Configure Supabase (required for login and messages)
+1. Create a project at https://supabase.com/ and wait for it to finish provisioning.
+2. In the project dashboard, open **Project Settings → API** (or **Connect**) and copy the Project URL and the publishable/anon browser key.
+3. Open `supabase-config.js` and replace the example values:
+   - `url`: your Supabase Project URL
+   - `anonKey`: your public publishable/anon key only
+   - `adminEmail`: the exact email address you will use to sign in as the website owner
+4. In Supabase, open **SQL Editor → New query**, paste all of `supabase-setup.sql`, and run it.
+5. In **Authentication → URL Configuration**, add your published GitHub Pages URL to **Site URL** and **Redirect URLs** (for example `https://YOUR-USERNAME.github.io/danu-website/**`). Use your actual URL.
+6. In **Authentication → Providers → Email**, keep email confirmation enabled for better account security. Create an account with the owner email and confirm it from your email before logging in.
+7. Wait for GitHub Pages to redeploy, then test sign-up/login and the contact form.
 
-Google Fonts need an internet connection; the page and core interactions still work without it.
+## Security notes
+- `supabase-config.js` must contain only the public project URL and publishable/anon key. **Never put a `service_role` key, database password, or other secret in website files.**
+- The database uses Row Level Security (RLS). Anonymous visitors can submit a message but cannot read messages. Signed-in users can read their own user-associated submissions. The owner inbox policy allows the exact configured owner email to read the inbox.
+- Set the owner email in BOTH `supabase-config.js` and the owner-email policy in `supabase-setup.sql` before running the SQL. In `supabase-setup.sql`, replace `your-email@example.com` with your exact owner login email. If you already ran the SQL, edit that policy in SQL Editor and run the updated SQL again.
+- Public signup is enabled by default. If you want only yourself to have an account, disable public signups in Supabase Auth settings after creating and confirming your owner account.
+- GitHub Pages is a static host; Supabase provides the authentication and database service. A hosted site will not be able to submit/read messages until Supabase is configured correctly.
 
-## Personalize before publishing
-
-### 1. Add your photos
-Put your own image files inside `assets/`. In `index.html`, replace the sample artwork inside each gallery card with:
-```html
-<div class="photo-art">
-  <img src="assets/my-photo.jpg" alt="A favourite moment">
-</div>
-```
-Then add this CSS at the end of `styles.css`:
-```css
-.photo-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
-```
-Update each gallery card's `data-title` and `data-caption` values. Only publish photos you have permission to share.
-
-### 2. Add your social profile URLs
-In `index.html`, find the `FIND ME ONLINE` section. Replace these placeholder URLs with your own:
-- Instagram: `https://instagram.com/your-username`
-- YouTube: `https://youtube.com/@your-channel`
-- TikTok: `https://tiktok.com/@your-username`
-- Facebook: `https://facebook.com/your-profile`
-
-The links are intentionally placeholders and do not represent real profiles. Do not publish until you replace them or remove any profile link you do not want to use.
-
-### 3. Set your contact email
-Open `script.js` and replace:
-```js
-const YOUR_EMAIL = "your-email@example.com";
-```
-with your email address. The form opens the visitor's default email app with the message prepared. It does not send or store messages directly. For a form that submits on the site, use a form service or backend.
-
-### 4. Update the copy
-Edit `index.html` to add your real story, interests, and any public links you want to share. Avoid putting private information such as your home address or personal phone number on a public site.
-
-## Publish free with GitHub Pages
-
-1. Sign in or create an account at https://github.com/.
-2. Create a new **public** repository, for example `danu-website`.
-3. Upload the extracted project files to the repository root: `index.html`, `styles.css`, `script.js`, `README.md`, and the `assets` folder. Upload the extracted files, not just the ZIP.
-4. Open **Settings → Pages** in the repository.
-5. Select **Deploy from a branch**, choose the `main` branch and `/ (root)` folder, then save.
-6. Wait a few minutes and check the URL shown under Settings → Pages.
-
-Official guide: https://docs.github.com/en/pages/quickstart
-
-## Important notes
-
-- This is a static personal brand website and does not include a login system. A real public login needs a secure authentication provider or backend.
-- The contact form uses `mailto:` and requires the visitor to have an email app configured.
-- Social URLs are placeholders. Replace them before making the site public.
-- A custom domain is optional; start with the free GitHub Pages address.
+## Personalize the website
+- Replace social profile placeholders in `index.html` with your real links.
+- Replace sample gallery artwork with your own photos, and update titles/captions.
+- Update the wording in `index.html` to reflect your real interests.
+- Only publish information and photos you are comfortable sharing publicly.

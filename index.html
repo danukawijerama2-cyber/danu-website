@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f8f5">
+  <meta name="theme-color" id="themeColorMeta" content="#f8f8f5">
   <meta name="description" content="Danu — my personal corner of the internet, with photos, ideas, and things worth sharing.">
   <title>Danu — Personal Brand</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -16,6 +16,8 @@
     <nav id="nav" class="nav">
       <a href="#about">About</a><a href="#interests">My world</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
       <a class="nav-cta" href="#contact">Say hello <span>↗</span></a>
+      <a class="nav-account" href="#account">Account</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">☾ <span>Dark mode</span></button>
     </nav>
   </header>
 
@@ -86,6 +88,44 @@
       </div>
     </section>
 
+
+    <section class="account section-line" id="account">
+      <div class="wrap account-grid">
+        <div class="account-copy reveal">
+          <p class="section-kicker">06 / YOUR ACCOUNT</p>
+          <h2>A little space<br>that's <em>yours.</em></h2>
+          <p>Create an account or sign in securely. The website owner can view submitted messages after signing in with the configured owner email.</p>
+          <p class="form-status" id="authStatus" role="status">Connect Supabase to enable accounts.</p>
+        </div>
+        <div class="account-panel reveal">
+          <div id="authForms">
+            <div class="auth-tabs">
+              <button type="button" id="showLogin" class="active">Log in</button>
+              <button type="button" id="showSignup">Create account</button>
+            </div>
+            <form class="auth-form" id="authForm">
+              <label for="authEmail">Email address</label>
+              <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <label for="authPassword">Password</label>
+              <input id="authPassword" name="password" type="password" minlength="8" autocomplete="current-password" placeholder="At least 8 characters" required>
+              <button class="button button-dark" id="authSubmit" type="submit">Log in <span>↗</span></button>
+            </form>
+          </div>
+          <div id="signedInPanel" class="signed-in-panel" hidden>
+            <h3>You're signed in.</h3>
+            <p id="signedInEmail"></p>
+            <p id="signedInNote"></p>
+            <button type="button" class="button button-dark" id="logoutButton">Log out</button>
+          </div>
+          <div id="inboxPanel" hidden>
+            <div class="inbox-heading"><h3>Private message inbox</h3><button type="button" class="small-button" id="refreshInbox">Refresh</button></div>
+            <p id="inboxStatus" class="form-status" role="status"></p>
+            <div id="inboxList" class="inbox-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="contact section-line" id="contact">
       <div class="wrap contact-grid">
         <div class="contact-copy reveal"><p class="section-kicker">05 / SAY HELLO</p><h2>Good things<br>start with <em>hello.</em></h2><p>Have a thought, an idea, or just want to say hi? I'd be happy to hear from you.</p><div class="contact-note"><span>✳</span> No fancy introduction needed.</div></div>
@@ -93,8 +133,8 @@
           <label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="What should I call you?" required>
           <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
           <label for="message">Your message</label><textarea id="message" name="message" rows="4" placeholder="Write something..." required></textarea>
-          <button class="button button-dark" type="submit">Prepare email <span>↗</span></button>
-          <p class="form-status" id="formStatus" role="status">Before publishing, add your contact email in <code>script.js</code>.</p>
+          <button class="button button-dark" type="submit">Send message <span>↗</span></button>
+          <p class="form-status" id="formStatus" role="status">Your message will be submitted securely when the site owner has enabled the message service.</p>
         </form>
       </div>
     </section>
@@ -103,6 +143,8 @@
   <footer class="footer"><div class="wrap footer-inner"><a class="logo" href="#home"><span class="logo-symbol">d</span><span>danu<span class="dot">.</span></span></a><p>Made with care in Sri Lanka.</p><a href="#home" class="back-top">Back to top ↑</a><span class="copyright">© <span id="year"></span> Danu</span></div></footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lightbox-close" id="lightboxClose" aria-label="Close gallery image">×</button><div class="lightbox-art" id="lightboxArt"></div><h3 id="lightboxTitle"></h3><p id="lightboxCaption"></p></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
