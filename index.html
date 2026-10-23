@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f5">
+  <meta name="description" content="Danu — my personal corner of the internet, with photos, ideas, and things worth sharing.">
+  <title>Danu — Personal Brand</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#home" aria-label="Danu home"><span class="logo-symbol">d</span><span>danu<span class="dot">.</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span></button>
+    <nav id="nav" class="nav">
+      <a href="#about">About</a><a href="#interests">My world</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      <a class="nav-cta" href="#contact">Say hello <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A LITTLE SPACE ON THE INTERNET</p>
+        <h1>Hey, I'm Danu.<br><span class="soft">This is my</span><br><em>little world.</em></h1>
+        <p class="hero-description">A personal corner to share the things I love, the moments I collect, and the ideas I'm exploring. Simple, honest, and always a work in progress.</p>
+        <div class="hero-buttons"><a class="button button-dark" href="#gallery">Explore my world <span>↘</span></a><a class="under-link" href="#about">A little about me <span>→</span></a></div>
+        <div class="hero-foot"><span class="availability"><i></i> Always learning, always growing</span><span class="hero-location">Sri Lanka</span></div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Abstract landscape artwork">
+        <div class="hero-art">
+          <div class="art-label"><span>PERSONAL JOURNAL</span><span>01 — 04</span></div>
+          <div class="art-sun"></div><div class="art-haze"></div><div class="art-ridge ridge-one"></div><div class="art-ridge ridge-two"></div><div class="art-ridge ridge-three"></div>
+          <div class="art-bottom"><span>STAY CURIOUS.</span><span>KEEP COLLECTING.</span></div>
+        </div>
+        <div class="art-sticker"><span>✳</span><span>My life.<br>My perspective.</span></div>
+      </div>
+    </section>
+
+    <section class="about section-line" id="about">
+      <div class="wrap about-grid">
+        <p class="section-kicker reveal">01 / ABOUT DANU</p>
+        <div class="about-main reveal">
+          <h2>Just me,<br><em>as I am.</em></h2>
+          <p class="lead">I'm Danu. Welcome to my own little space online.</p>
+          <p class="body-text">This website is a place for my story, interests, photos, and the things I want to share. I'll keep adding to it as I learn, create, and experience new things. This paragraph is yours to edit whenever you want to tell more of your story.</p>
+          <a class="under-link" href="#contact">Let's connect <span>↗</span></a>
+        </div>
+        <div class="about-aside reveal"><div class="aside-mark">“</div><p>Be yourself.<br>Keep exploring.<br>Enjoy the journey.</p><span>A LITTLE REMINDER</span></div>
+      </div>
+    </section>
+
+    <section class="interests section-line" id="interests">
+      <div class="wrap">
+        <div class="section-heading reveal"><div><p class="section-kicker">02 / MY WORLD</p><h2>Things that make me <em>me.</em></h2></div><p class="heading-note">A few simple themes for your personal brand. Change them to match your interests.</p></div>
+        <div class="interest-grid">
+          <article class="interest-card reveal"><span class="interest-icon">✳</span><span class="interest-num">01 / CREATE</span><h3>Ideas & creativity</h3><p>Exploring ideas, learning new skills, and making things that feel personal.</p><span class="interest-arrow">↗</span></article>
+          <article class="interest-card reveal"><span class="interest-icon">↗</span><span class="interest-num">02 / EXPLORE</span><h3>Places & moments</h3><p>Finding inspiration in nature, new places, and the little details of everyday life.</p><span class="interest-arrow">↗</span></article>
+          <article class="interest-card reveal"><span class="interest-icon">∞</span><span class="interest-num">03 / GROW</span><h3>Learning & growth</h3><p>Taking things one step at a time and getting a little better along the way.</p><span class="interest-arrow">↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section-line" id="gallery">
+      <div class="wrap">
+        <div class="section-heading reveal"><div><p class="section-kicker">03 / PHOTO DIARY</p><h2>Moments worth <em>keeping.</em></h2></div><p class="heading-note">Replace the sample art with your own photos whenever you're ready.</p></div>
+        <div class="gallery-grid">
+          <button class="gallery-card gallery-wide reveal" data-title="A little perspective" data-caption="Sometimes a change of scenery is all you need."><div class="photo-art art-land"><span class="mini-sun"></span><span class="mountain a"></span><span class="mountain b"></span><span class="mountain c"></span><span class="art-word">OUT THERE</span></div><span class="gallery-meta"><span><small>01</small> A little perspective</span><b>↗</b></span></button>
+          <button class="gallery-card reveal" data-title="Slow moments" data-caption="Making space to breathe and appreciate the day."><div class="photo-art art-morning"><span class="morning-sun"></span><span class="plant plant-a"></span><span class="plant plant-b"></span><span class="window-line"></span></div><span class="gallery-meta"><span><small>02</small> Slow moments</span><b>↗</b></span></button>
+          <button class="gallery-card reveal" data-title="Little details" data-caption="There's beauty in the things we nearly miss."><div class="photo-art art-detail"><span class="shape-circle"></span><span class="shape-ring"></span><span class="shape-leaf"></span></div><span class="gallery-meta"><span><small>03</small> Little details</span><b>↗</b></span></button>
+        </div>
+        <p class="gallery-tip">To add your photos, place them in the <code>assets</code> folder and follow the steps in <code>README.md</code>.</p>
+      </div>
+    </section>
+
+    <section class="social section-line" id="social">
+      <div class="wrap social-inner">
+        <div class="social-copy reveal"><p class="section-kicker">04 / FIND ME ONLINE</p><h2>Let's stay <em>connected.</em></h2><p>Follow along on the platforms I use. The links below are placeholders—add your own profile URLs before publishing.</p></div>
+        <div class="social-links reveal">
+          <a href="https://instagram.com/your-username" target="_blank" rel="noopener noreferrer" data-social="Instagram"><span class="social-icon">ig</span><span><b>Instagram</b><small>Photos & everyday moments</small></span><span class="social-arrow">↗</span></a>
+          <a href="https://youtube.com/@your-channel" target="_blank" rel="noopener noreferrer" data-social="YouTube"><span class="social-icon">▶</span><span><b>YouTube</b><small>Videos & stories</small></span><span class="social-arrow">↗</span></a>
+          <a href="https://tiktok.com/@your-username" target="_blank" rel="noopener noreferrer" data-social="TikTok"><span class="social-icon">♪</span><span><b>TikTok</b><small>Short videos & clips</small></span><span class="social-arrow">↗</span></a>
+          <a href="https://facebook.com/your-profile" target="_blank" rel="noopener noreferrer" data-social="Facebook"><span class="social-icon">f</span><span><b>Facebook</b><small>Updates & connections</small></span><span class="social-arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-line" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy reveal"><p class="section-kicker">05 / SAY HELLO</p><h2>Good things<br>start with <em>hello.</em></h2><p>Have a thought, an idea, or just want to say hi? I'd be happy to hear from you.</p><div class="contact-note"><span>✳</span> No fancy introduction needed.</div></div>
+        <form class="contact-form reveal" id="contactForm">
+          <label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="What should I call you?" required>
+          <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <label for="message">Your message</label><textarea id="message" name="message" rows="4" placeholder="Write something..." required></textarea>
+          <button class="button button-dark" type="submit">Prepare email <span>↗</span></button>
+          <p class="form-status" id="formStatus" role="status">Before publishing, add your contact email in <code>script.js</code>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><a class="logo" href="#home"><span class="logo-symbol">d</span><span>danu<span class="dot">.</span></span></a><p>Made with care in Sri Lanka.</p><a href="#home" class="back-top">Back to top ↑</a><span class="copyright">© <span id="year"></span> Danu</span></div></footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lightbox-close" id="lightboxClose" aria-label="Close gallery image">×</button><div class="lightbox-art" id="lightboxArt"></div><h3 id="lightboxTitle"></h3><p id="lightboxCaption"></p></div>
+  <script src="script.js"></script>
+</body>
+</html>
